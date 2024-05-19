@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscador de imágenes con códigos</title>
+		<style>
+<link rel="BOTON" href="BOTON.CSS">
+</STYLE>
+<style>
+body{ 
+background-image:url(igss.jpg);
+background-repeat: no repeat;
+background-size: 100% 800%;
+} 
+</style>
+<style>
+.boton-personalizado {
+border-radius: 25px;
+padding: 10px 20px;
+background-color: #ffd700;
+color: #000000;
+border: none;
+cursor: pointer;
+font-size: 20px;
+font-weight: bold;
+</style>
+
+</head>
+<CENTER>
+<BODY bgcolor="WHITE" text="white">
+
+<h1>RECETAS</h1>
+
+<input type="text" id="codigo" placeholder="Ingrese el código de la receta">
+<button  onclick="mostrarImagen()" > SOLICITAR </button>
+
+<div id="imagenes" style="display: none;">
+    <img src="3568.jpg" alt="Imagen 1" data-codigo="3568">
+    <img src="3948.jpg" alt="Imagen 1" data-codigo="3948">
+	<img src="3358.jpg" alt="Imagen 1" data-codigo="3358">
+	<img src="3338.jpg" alt="Imagen 1" data-codigo="3338">
+      <img src="3008.jpg" alt="Imagen 3" data-codigo="3008">
+</div>
+
+<div id="resultado"></div>
+
+<script>
+function mostrarImagen() {
+    var codigo = document.getElementById("codigo").value;
+    var imagenes = document.getElementById("imagenes").getElementsByTagName("img");
+    var imagenEncontrada = null;
+
+    for (var i = 0; i < imagenes.length; i++) {
+        if (imagenes[i].getAttribute("data-codigo") === codigo) {
+            imagenEncontrada = imagenes[i];
+            break;
+        }
+    }
+
+    if (imagenEncontrada) {
+        var resultado = document.getElementById("resultado");
+        resultado.innerHTML = ""; 
+        var img = document.createElement("img");
+        img.src = imagenEncontrada.src;
+        img.alt = imagenEncontrada.alt;
+
+        resultado.appendChild(img);
+    } else {
+        alert("No se encontró ninguna imagen con ese código.");
+    }
+}
+</script>
+	<a href="rony82yanes@gmail.com" class="boton-correo">Enviar correo</a>
+	<a href="index.html">
+		<button class="boton-personalizado"> INICIO</button>
+		</a>
+
+
+
+</body>
+</CENTER>
+</html>
